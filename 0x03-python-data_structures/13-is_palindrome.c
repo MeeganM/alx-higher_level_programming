@@ -22,6 +22,7 @@ void reverse(listint_t **h_r)
 		crr = nxt;
 	}
 
+
 	*h_r = prv;
 
 }
@@ -92,6 +93,13 @@ int is_palindrome(listint_t **head)
 			middle = slow;
 			slow = slow->next;
 		}
+		scn_half = slow;
+		prev_slow->next = NULL;
+		reverse(&scn_half);
+		isp = compare(*head, scn_half);
+
+		if (middle != NULL)
+		{
 
 		prev_slow->next = middle;
 		middle->next = scn_half;
